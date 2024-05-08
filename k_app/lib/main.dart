@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:k_app/models/user_model.dart';
 import 'package:k_app/providers/user_provider.dart';
-import 'package:k_app/screens/homepage_screen.dart';
-import 'package:k_app/screens/loginpage_screen.dart';
 import 'package:k_app/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -22,6 +20,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => AuthProvider())],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: SplashScreen(loggedIn: loggedIn),
       ),
     );

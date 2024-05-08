@@ -7,7 +7,7 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 class SplashScreen extends StatefulWidget {
   final bool loggedIn;
 
-  const SplashScreen({Key? key, required this.loggedIn}) : super(key: key);
+  const SplashScreen({super.key, required this.loggedIn});
 
   @override
   _SplashScreenState createState() => _SplashScreenState();

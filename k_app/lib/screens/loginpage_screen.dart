@@ -116,7 +116,7 @@ class _LoginPageScreenState extends State<LoginPageScreen> {
                 ),
                 const Text.rich(
                   TextSpan(
-                    text: 'By Logging in to Kode, you agree to all of Kode ',
+                    text: 'By Logging in to Koda, you agree to all of Koda ',
                     children: <TextSpan>[
                       TextSpan(
                         text: 'Terms and Conditions',
@@ -155,12 +155,12 @@ class _LoginPageScreenState extends State<LoginPageScreen> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomePageScreen(),
+                            builder: (context) => const HomePageScreen(),
                           ),
                         );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content: Text('Email and Password is incorrect'),
                             backgroundColor: Colors.red,
                           ),

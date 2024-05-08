@@ -8,7 +8,7 @@ class User {
 }
 
 class AuthManager {
-  static final String _isLoggedInKey = 'isLoggedIn';
+  static const String _isLoggedInKey = 'isLoggedIn';
 
   static Future<bool> isLoggedIn() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
