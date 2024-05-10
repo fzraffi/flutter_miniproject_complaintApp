@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:k_app/screens/geminichat.dart';
+import 'package:k_app/screens/test.dart';
 import 'package:k_app/widgets/bottomnavy.dart';
 
 class HomePageScreen extends StatefulWidget {
@@ -50,10 +52,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 100,
                       child: Column(
                         children: [
@@ -75,7 +77,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 100,
                       child: Column(
                         children: [
@@ -94,7 +96,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 100,
                       child: Column(
                         children: [
@@ -113,23 +115,27 @@ class _HomePageScreenState extends State<HomePageScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: 100,
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                              backgroundColor: Color.fromARGB(255, 12, 58, 123),
-                              radius: 25,
-                              child: Image(
-                                  image: AssetImage('assets/images/ai.png'),
-                                  width: 30,
-                                  height: 30)),
-                          Text(
-                            'AI',
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 12, 58, 123)),
-                          ),
-                        ],
+                    GestureDetector( onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (_) => const ChatBotGeminiPage()));
+                    },
+                      child: const SizedBox(
+                        height: 100,
+                        child: Column(
+                          children: [
+                            CircleAvatar(
+                                backgroundColor: Color.fromARGB(255, 12, 58, 123),
+                                radius: 25,
+                                child: Image(
+                                    image: AssetImage('assets/images/ai.png'),
+                                    width: 30,
+                                    height: 30)),
+                            Text(
+                              'AI',
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 12, 58, 123)),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],

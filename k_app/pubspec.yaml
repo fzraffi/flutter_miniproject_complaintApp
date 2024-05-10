@@ -39,6 +39,10 @@ dependencies:
   provider: ^6.1.2
   shared_preferences: ^2.0.3
   persistent_bottom_nav_bar_v2: ^5.2.3
+  http: ^1.2.1
+  chat_gpt_sdk: ^3.0.0
+  dash_chat_2: ^0.0.20
+  flutter_gemini: ^2.0.3
 
 dev_dependencies:
   flutter_test:
