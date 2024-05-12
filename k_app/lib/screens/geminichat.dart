@@ -33,12 +33,12 @@ class _ChatBotGeminiPageState extends State<ChatBotGeminiPage> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: Colors.white,
           ),
         ),
-        backgroundColor: Color.fromARGB(255, 12, 58, 123),
+        backgroundColor: const Color.fromARGB(255, 12, 58, 123),
         centerTitle: true,
         title: const Text(
           "AI Chat",

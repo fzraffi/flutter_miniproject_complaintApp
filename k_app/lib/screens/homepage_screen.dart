@@ -1,6 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:k_app/screens/geminichat.dart';
-import 'package:k_app/screens/test.dart';
+import 'package:k_app/screens/inputissuepage_screen.dart';
+import 'package:k_app/screens/newspage_screen.dart';
+import 'package:k_app/screens/userreport_screen.dart';
 import 'package:k_app/widgets/bottomnavy.dart';
 
 class HomePageScreen extends StatefulWidget {
@@ -53,77 +57,94 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   height: 20,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    const SizedBox(
-                      height: 100,
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                            backgroundColor: Color.fromARGB(255, 12, 58, 123),
-                            radius: 25,
-                            child: Image(
-                              image: AssetImage('assets/images/cityreport.png'),
-                              width: 30,
-                              height: 30,
-                            ),
-                          ),
-                          Text(
-                            'Citizen\nReport',
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 12, 58, 123),
-                                fontSize: 12),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 100,
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                              backgroundColor: Color.fromARGB(255, 12, 58, 123),
-                              radius: 25,
-                              child: Image(
-                                  image: AssetImage('assets/images/news.png'),
-                                  width: 30,
-                                  height: 30)),
-                          Text(
-                            'News',
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 12, 58, 123)),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 100,
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                              backgroundColor: Color.fromARGB(255, 12, 58, 123),
-                              radius: 25,
-                              child: Image(
-                                  image: AssetImage('assets/images/cs.png'),
-                                  width: 30,
-                                  height: 30)),
-                          Text(
-                            'CS',
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 12, 58, 123)),
-                          ),
-                        ],
-                      ),
-                    ),
-                    GestureDetector( onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (_) => const ChatBotGeminiPage()));
-                    },
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (_) => const UserReportScreen()));
+                      },
                       child: const SizedBox(
                         height: 100,
                         child: Column(
                           children: [
                             CircleAvatar(
-                                backgroundColor: Color.fromARGB(255, 12, 58, 123),
+                              backgroundColor: Color.fromARGB(255, 12, 58, 123),
+                              radius: 25,
+                              child: Image(
+                                image:
+                                    AssetImage('assets/images/cityreport.png'),
+                                width: 30,
+                                height: 30,
+                              ),
+                            ),
+                            Text(
+                              '   My \nReport',
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 12, 58, 123),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (_) => NewsPage()));
+                      },
+                      child: const SizedBox(
+                        height: 100,
+                        child: Column(
+                          children: [
+                            CircleAvatar(
+                                backgroundColor:
+                                    Color.fromARGB(255, 12, 58, 123),
+                                radius: 25,
+                                child: Image(
+                                    image: AssetImage('assets/images/news.png'),
+                                    width: 30,
+                                    height: 30)),
+                            Text(
+                              'News',
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 12, 58, 123)),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 100,
+                      child: Column(
+                        children: [
+                          CircleAvatar(
+                              backgroundColor: Color.fromARGB(255, 12, 58, 123),
+                              radius: 25,
+                              child: Image(
+                                  image: AssetImage('assets/images/cloud.png'),
+                                  width: 30,
+                                  height: 30)),
+                          Text(
+                            'Weather',
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 12, 58, 123)),
+                          ),
+                        ],
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (_) => const ChatBotGeminiPage()));
+                      },
+                      child: const SizedBox(
+                        height: 100,
+                        child: Column(
+                          children: [
+                            CircleAvatar(
+                                backgroundColor:
+                                    Color.fromARGB(255, 12, 58, 123),
                                 radius: 25,
                                 child: Image(
                                     image: AssetImage('assets/images/ai.png'),
@@ -144,7 +165,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 // SECOND MENU
 
                 const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     SizedBox(
                       height: 100,
@@ -174,12 +195,13 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               backgroundColor: Color.fromARGB(255, 12, 58, 123),
                               radius: 25,
                               child: Image(
-                                image: AssetImage('assets/images/cloud.png'),
+                                image: AssetImage(
+                                    'assets/images/transportation.png'),
                                 width: 35,
                                 height: 40,
                               )),
                           Text(
-                            'Weather',
+                            'Travel',
                             style: TextStyle(
                                 color: Color.fromARGB(255, 12, 58, 123)),
                           ),
@@ -194,13 +216,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               backgroundColor: Color.fromARGB(255, 12, 58, 123),
                               radius: 25,
                               child: Image(
-                                image: AssetImage(
-                                    'assets/images/transportation.png'),
+                                image: AssetImage('assets/images/cs.png'),
                                 width: 30,
                                 height: 45,
                               )),
                           Text(
-                            'Travel',
+                            'CS',
                             style: TextStyle(
                                 color: Color.fromARGB(255, 12, 58, 123)),
                           ),
@@ -226,10 +247,55 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     ),
                   ],
                 ),
-
-                Container(
-                  height: 150,
-                  color: const Color.fromARGB(255, 187, 210, 255),
+                
+                Image(image: AssetImage('assets/images/banner1.png')),
+                SizedBox(
+                  height: 20,
+                ),
+                Align(
+                  alignment: AlignmentDirectional.topStart,
+                  child: Text('Recommend for you', style: TextStyle(
+                  fontWeight: FontWeight.bold, fontSize: 15, color: Color.fromARGB(255, 12, 58, 123),
+                  ),)),
+                SizedBox(
+                  height: 15,
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 150,
+                        height: 240,
+                        margin: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 12, 58, 123),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Image(image: AssetImage('assets/images/banner3.png'), fit: BoxFit.cover,),
+                      ),
+                      Container(
+                        width: 150,
+                        height: 240,
+                        margin: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 12, 58, 123),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Image(image: AssetImage('assets/images/banner2.png'), fit: BoxFit.cover,),
+                      ),
+                                            Container(
+                        width: 150,
+                        height: 240,
+                        margin: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 12, 58, 123),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Image(image: AssetImage('assets/images/banner4.png'), fit: BoxFit.cover,),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -239,10 +305,13 @@ class _HomePageScreenState extends State<HomePageScreen> {
       extendBody: true,
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color.fromARGB(255, 30, 188, 217),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (_) => IssuePageScreen()));
+        },
         shape: const CircleBorder(),
         child: const Icon(
-          Icons.camera,
+          Icons.add,
           color: Colors.white,
         ),
       ),
