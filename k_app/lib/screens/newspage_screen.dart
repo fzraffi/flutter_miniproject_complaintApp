@@ -42,6 +42,7 @@ class _NewsPageState extends State<NewsPage> {
               return Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: Card(
+                  color: Colors.white,
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
