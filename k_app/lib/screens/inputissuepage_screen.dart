@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:k_app/providers/location_provider.dart';
 import 'package:k_app/providers/reports_provider.dart';
+import 'package:k_app/screens/userreport_screen.dart';
 import 'package:provider/provider.dart';
 
 class IssuePageScreen extends StatefulWidget {
@@ -280,6 +281,7 @@ class _IssuePageScreenState extends State<IssuePageScreen> {
                   };
 
                   Provider.of<ReportsProvider>(context, listen: false).addReport(newReportData);
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => UserReportScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 12, 58, 123),
