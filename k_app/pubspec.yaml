@@ -45,7 +45,8 @@ dependencies:
   geolocator: ^7.1.0
   geocoding: ^3.0.0
   dio: ^5.4.3+1
-  flutter_svg: ^2.0.10+1
+  linear_progress_bar: ^1.1.1
+
 
 dev_dependencies:
   flutter_test:

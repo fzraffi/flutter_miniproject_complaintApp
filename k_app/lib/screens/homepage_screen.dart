@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:k_app/screens/geminichat.dart';
 import 'package:k_app/screens/inputissuepage_screen.dart';
 import 'package:k_app/screens/newspage_screen.dart';
@@ -91,7 +89,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => NewsPage()));
+                            MaterialPageRoute(builder: (_) => const NewsPage()));
                       },
                       child: const SizedBox(
                         height: 100,
@@ -248,16 +246,16 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   ],
                 ),
                 
-                Image(image: AssetImage('assets/images/banner1.png')),
-                SizedBox(
+                const Image(image: AssetImage('assets/images/banner1.png')),
+                const SizedBox(
                   height: 20,
                 ),
-                Align(
+                const Align(
                   alignment: AlignmentDirectional.topStart,
                   child: Text('Recommend for you', style: TextStyle(
                   fontWeight: FontWeight.bold, fontSize: 15, color: Color.fromARGB(255, 12, 58, 123),
                   ),)),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 SingleChildScrollView(
@@ -267,32 +265,32 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       Container(
                         width: 150,
                         height: 240,
-                        margin: EdgeInsets.all(5),
+                        margin: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 12, 58, 123),
+                          color: const Color.fromARGB(255, 12, 58, 123),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Image(image: AssetImage('assets/images/banner3.png'), fit: BoxFit.cover,),
+                        child: const Image(image: AssetImage('assets/images/banner3.png'), fit: BoxFit.cover,),
                       ),
                       Container(
                         width: 150,
                         height: 240,
-                        margin: EdgeInsets.all(5),
+                        margin: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 12, 58, 123),
+                          color: const Color.fromARGB(255, 12, 58, 123),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Image(image: AssetImage('assets/images/banner2.png'), fit: BoxFit.cover,),
+                        child: const Image(image: AssetImage('assets/images/banner2.png'), fit: BoxFit.cover,),
                       ),
                                             Container(
                         width: 150,
                         height: 240,
-                        margin: EdgeInsets.all(5),
+                        margin: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 12, 58, 123),
+                          color: const Color.fromARGB(255, 12, 58, 123),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Image(image: AssetImage('assets/images/banner4.png'), fit: BoxFit.cover,),
+                        child: const Image(image: AssetImage('assets/images/banner4.png'), fit: BoxFit.cover,),
                       ),
                     ],
                   ),
@@ -307,7 +305,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
         backgroundColor: const Color.fromARGB(255, 30, 188, 217),
         onPressed: () {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (_) => IssuePageScreen()));
+              .push(MaterialPageRoute(builder: (_) => const IssuePageScreen()));
         },
         shape: const CircleBorder(),
         child: const Icon(

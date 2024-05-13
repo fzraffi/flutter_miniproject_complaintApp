@@ -33,7 +33,7 @@ class _NewsPageState extends State<NewsPage> {
         ),
       ),
       body: Container(
-                          color: const Color.fromARGB(255, 187, 210, 255),
+        color: const Color.fromARGB(255, 187, 210, 255),
         child: Consumer<NewsProvider>(
           builder: (context, value, child) => ListView.builder(
             itemCount: newsProvider.news?.length ?? 0,
@@ -42,7 +42,6 @@ class _NewsPageState extends State<NewsPage> {
               return Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: Card(
-
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
@@ -53,16 +52,25 @@ class _NewsPageState extends State<NewsPage> {
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
+                            color: Color.fromARGB(255, 12, 58, 123),
                           ),
                         ),
                         const SizedBox(height: 8.0),
                         Text(news.desc),
-                        const SizedBox(height: 50),
+                        const SizedBox(height: 30),
+                        const Divider(),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(news.author),
-                            Text(
+                            Row(
+                              children: [
+                                const Icon(Icons.person, color: Colors.green,),
+                                Text(news.author, style: const TextStyle(
+                                color: Colors.green,
+                                ),),
+                              ],
+                            ),
+                            const Text(
                               'Read More',
                               style: TextStyle(
                                 color: Colors.red,
@@ -85,7 +93,7 @@ class _NewsPageState extends State<NewsPage> {
         backgroundColor: const Color.fromARGB(255, 30, 188, 217),
         onPressed: () {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (_) => IssuePageScreen()));
+              .push(MaterialPageRoute(builder: (_) => const IssuePageScreen()));
         },
         shape: const CircleBorder(),
         child: const Icon(

@@ -7,7 +7,7 @@ class NewsService{
   final String _apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImttY3JzbGtqb3B0bGF2eHNtZXRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTM3NzAxMzUsImV4cCI6MjAyOTM0NjEzNX0.GtaklIut7JNHxyIfe3yl7XpBNXEFZigpCneXkjJTSpk';
 
   Future<Response> getNews() async{
-    var baseUrl = '${_baseUrl}news?select=*';
+    var baseUrl = '${_baseUrl}news?select=*&order=id.desc';
     final response = await _dio.get(
       baseUrl, options: Options(
         headers: {

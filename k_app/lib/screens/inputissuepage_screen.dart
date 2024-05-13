@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:k_app/providers/location_provider.dart';
+import 'package:k_app/providers/reports_provider.dart';
 import 'package:provider/provider.dart';
 
 class IssuePageScreen extends StatefulWidget {
@@ -10,7 +11,8 @@ class IssuePageScreen extends StatefulWidget {
 }
 
 class _IssuePageScreenState extends State<IssuePageScreen> {
-  TextEditingController inputDetailController = TextEditingController();
+  TextEditingController descController = TextEditingController();
+  TextEditingController titleController = TextEditingController();
   String selectedCategory = '';
 
   @override
@@ -29,9 +31,34 @@ class _IssuePageScreenState extends State<IssuePageScreen> {
         padding: const EdgeInsets.all(20.0),
         child: ListView(
           children: <Widget>[
+            const Text(
+              'Title',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                color: Color.fromARGB(255, 12, 58, 123),
+              ),
+            ),
+            TextField(
+              controller: titleController,
+              decoration: const InputDecoration(
+                filled: true,
+                fillColor: Color.fromARGB(255, 187, 210, 255),
+                border: OutlineInputBorder(
+                  // Border
+                  borderSide: BorderSide.none, // Hilangkan garis tepi
+                ),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 20.0, horizontal: 10),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+
                 const Text(
                   'Report Location',
                   style: TextStyle(
@@ -60,7 +87,6 @@ class _IssuePageScreenState extends State<IssuePageScreen> {
                 )
               ],
             ),
-            const SizedBox(height: 20),
             Container(
               width: double.infinity,
               height: 150,
@@ -99,7 +125,7 @@ class _IssuePageScreenState extends State<IssuePageScreen> {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
             const Text(
               'Report Details',
@@ -110,7 +136,7 @@ class _IssuePageScreenState extends State<IssuePageScreen> {
               ),
             ),
             TextField(
-              controller: inputDetailController,
+              controller: descController,
               decoration: const InputDecoration(
                 filled: true,
                 fillColor: Color.fromARGB(255, 187, 210, 255),
@@ -142,7 +168,7 @@ class _IssuePageScreenState extends State<IssuePageScreen> {
                     });
                   },
                   style: ElevatedButton.styleFrom(
-                      minimumSize: Size(30, 30),
+                      minimumSize: const Size(30, 30),
                       backgroundColor: selectedCategory == 'Public Service'
                           ? Colors.green
                           : const Color.fromARGB(255, 12, 58, 123)),
@@ -158,7 +184,7 @@ class _IssuePageScreenState extends State<IssuePageScreen> {
                     });
                   },
                   style: ElevatedButton.styleFrom(
-                      minimumSize: Size(30, 30),
+                      minimumSize: const Size(30, 30),
                       backgroundColor: selectedCategory == 'Inftastruktur'
                           ? Colors.green
                           : const Color.fromARGB(255, 12, 58, 123)),
@@ -174,7 +200,7 @@ class _IssuePageScreenState extends State<IssuePageScreen> {
                     });
                   },
                   style: ElevatedButton.styleFrom(
-                      minimumSize: Size(30, 30),
+                      minimumSize: const Size(30, 30),
                       backgroundColor: selectedCategory == 'Criminality'
                           ? Colors.green
                           : const Color.fromARGB(255, 12, 58, 123)),
@@ -194,7 +220,7 @@ class _IssuePageScreenState extends State<IssuePageScreen> {
                     });
                   },
                   style: ElevatedButton.styleFrom(
-                      minimumSize: Size(30, 30),
+                      minimumSize: const Size(30, 30),
                       backgroundColor: selectedCategory == 'Bully'
                           ? Colors.green
                           : const Color.fromARGB(255, 12, 58, 123)),
@@ -210,7 +236,7 @@ class _IssuePageScreenState extends State<IssuePageScreen> {
                     });
                   },
                   style: ElevatedButton.styleFrom(
-                      minimumSize: Size(30, 30),
+                      minimumSize: const Size(30, 30),
                       backgroundColor: selectedCategory == 'Vehicle Emission'
                           ? Colors.green
                           : const Color.fromARGB(255, 12, 58, 123)),
@@ -226,7 +252,7 @@ class _IssuePageScreenState extends State<IssuePageScreen> {
                     });
                   },
                   style: ElevatedButton.styleFrom(
-                      minimumSize: Size(30, 30),
+                      minimumSize: const Size(30, 30),
                       backgroundColor: selectedCategory == 'Scam'
                           ? Colors.green
                           : const Color.fromARGB(255, 12, 58, 123)),
@@ -238,18 +264,28 @@ class _IssuePageScreenState extends State<IssuePageScreen> {
               ],
             ),
             const SizedBox(
-              height: 80,
+              height: 20,
             ),
             SizedBox(
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  String location = Provider.of<LocationProvider>(context, listen: false).address;
+                  final newReportData = {
+                    'title' : titleController.text,
+                    'desc' : descController.text,
+                    'location' : location,
+                    'category' : selectedCategory
+                  };
+
+                  Provider.of<ReportsProvider>(context, listen: false).addReport(newReportData);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 12, 58, 123),
                 ),
                 child: const Text(
-                  'OK',
+                  'Submit',
                   style: TextStyle(
                     color: Colors.white,
                   ),
