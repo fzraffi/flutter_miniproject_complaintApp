@@ -28,13 +28,20 @@ class ReportsProvider extends ChangeNotifier {
     }
   }
 
-  void addReport(Map<String, dynamic> newReportData) async{
+  void addReport(
+      BuildContext context, Map<String, dynamic> newReportData) async {
     _isLoaded = true;
     notifyListeners();
-    try{
+    try {
       final response = await _reportsService.addReport(newReportData);
       if (response.statusCode == 201) {
         getReports();
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Report added failed'),
+          ),
+        );
       }
     } catch (e) {
       debugPrint('Error $e');
@@ -43,12 +50,12 @@ class ReportsProvider extends ChangeNotifier {
     }
   }
 
-  void deleteReport(int reportId) async{
+  void deleteReport(int reportId) async {
     _isLoaded = true;
     notifyListeners();
-    try{
+    try {
       final response = await _reportsService.deleteReport(reportId);
-      if(response.statusCode == 204) {
+      if (response.statusCode == 204) {
         getReports();
       }
     } catch (e) {
@@ -58,4 +65,3 @@ class ReportsProvider extends ChangeNotifier {
     }
   }
 }
-

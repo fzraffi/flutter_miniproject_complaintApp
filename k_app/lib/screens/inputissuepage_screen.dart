@@ -280,7 +280,7 @@ class _IssuePageScreenState extends State<IssuePageScreen> {
                     'category' : selectedCategory
                   };
 
-                  Provider.of<ReportsProvider>(context, listen: false).addReport(newReportData);
+                  Provider.of<ReportsProvider>(context, listen: false).addReport(context, newReportData);
                   Navigator.of(context).push(MaterialPageRoute(builder: (_) => UserReportScreen()));
                 },
                 style: ElevatedButton.styleFrom(
