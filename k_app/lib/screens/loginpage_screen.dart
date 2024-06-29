@@ -3,6 +3,9 @@ import 'package:k_app/models/user_model.dart';
 import 'package:k_app/providers/user_provider.dart';
 import 'package:k_app/screens/homepage_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+final supabase = Supabase.instance.client;
 
 class LoginPageScreen extends StatefulWidget {
   const LoginPageScreen({super.key});
@@ -144,24 +147,42 @@ class _LoginPageScreenState extends State<LoginPageScreen> {
                   height: 49,
                   child: ElevatedButton(
                     onPressed: () async {
-                      final authProvider =
-                          Provider.of<AuthProvider>(context, listen: false);
-                      final loginSuccess = await authProvider.login(
-                          emailController.text, passwordController.text);
+                      // final authProvider =
+                      //     Provider.of<AuthProvider>(context, listen: false);
+                      // final loginSuccess = await authProvider.login(
+                      //     emailController.text, passwordController.text);
 
-                      if (loginSuccess) {
-                        await AuthManager.setLoggedIn(
-                            true); // Menetapkan status login
+                      // if (loginSuccess) {
+                      //   await AuthManager.setLoggedIn(
+                      //       true); // Menetapkan status login
+                      //   Navigator.pushReplacement(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) => const HomePageScreen(),
+                      //     ),
+                      //   );
+                      // } else {
+                      //   ScaffoldMessenger.of(context).showSnackBar(
+                      //     const SnackBar(
+                      //       content: Text('Email and Password is incorrect'),
+                      //       backgroundColor: Colors.red,
+                      //     ),
+                      //   );
+                      // }
+
+                      final authResponse = await supabase.auth
+                          .signInWithPassword(
+                              password: passwordController.text,
+                              email: emailController.text);
+                      if (authResponse.user != null) {
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => const HomePageScreen(),
-                          ),
+                          MaterialPageRoute(builder: (context) => HomePageScreen()),
                         );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                            content: Text('Email and Password is incorrect'),
+                            content: Text('Login failed'),
                             backgroundColor: Colors.red,
                           ),
                         );
@@ -179,6 +200,21 @@ class _LoginPageScreenState extends State<LoginPageScreen> {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 40,
+                ),
+                Center(child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Dont have an account?'),
+                    TextButton(
+                  child: Text('Sign Up'),
+                  onPressed: () {
+                
+                  })
+                  ],
+                )),
+                
               ],
             ),
           )),

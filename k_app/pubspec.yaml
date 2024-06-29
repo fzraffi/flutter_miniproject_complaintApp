@@ -47,6 +47,7 @@ dependencies:
   dio: ^5.4.3+1
   linear_progress_bar: ^1.1.1
   mockito: ^5.0.16
+  supabase_flutter: ^2.5.6
 
 
 dev_dependencies:
